@@ -1,0 +1,48 @@
+#include <iostream>
+#include <ctime>  
+#include <cstdlib>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    
+    struct cola 
+    {
+
+        float tllecliente, tacliente;
+
+    };
+
+    srand( time( 0 ) ); 
+    int nclientes = ( 1 + rand() % 500 );;
+    float pet = 0;
+    float pat = 0;
+    cola tcola[nclientes];
+    
+    for(int i=0; i<nclientes; i++)
+    {
+
+        int etiempo = ( 60 + rand() % 3600 );
+        float et = etiempo * 0.0166667;
+        cout << endl << "Tiempo de llegada de cliente " << i+1 << " :" << et << " mimutos" << endl;
+        tcola[i].tllecliente = et;
+        pet = pet + tcola[i].tllecliente;
+
+        int atiempo = ( 60 + rand() % 3600 );
+        float at = atiempo * 0.0166667;
+        cout << endl << "Tiempo de atencion de cliente " << i+1 << " :" << at << " minutos" << endl;
+        tcola[i].tacliente = at;
+        pat = pat + tcola[i].tacliente;
+
+    }
+    
+    cout << endl << "Total de clientes atendidos: " << nclientes;
+    cout << endl << "Total de tiempo de trabajo: " << pet + pat << " minutos";
+    cout << endl << "El promedio de llegada de tiempo de llegada entre clientes es: " << pet / nclientes << " minutos";
+    cout << endl << "El promedio de atencion de tiempo entre clientes es: " << pat / nclientes << " minutos";
+    
+
+    return 0;
+}
